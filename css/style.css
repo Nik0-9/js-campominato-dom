@@ -17,7 +17,7 @@ header{
 
 main{
     padding: 3rem;
-    }
+}
 
 #grid{
     width: 50%;
@@ -35,7 +35,7 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color:  rgb(32, 32, 32);
     cursor: crosshair;
 }
 .clicked{
@@ -48,4 +48,7 @@ main{
 .cell-hard{
     width: calc(100% / 7);
     height: calc(100% / 7);
+}
+.bomb{
+    background-color: red;
 }

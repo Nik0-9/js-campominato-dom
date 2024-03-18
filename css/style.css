@@ -1,0 +1,51 @@
+/* reset*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(32, 32, 32);
+}
+
+header{
+    height: 100px;
+    background-color: white;
+}
+
+main{
+    padding: 3rem;
+    }
+
+#grid{
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin:auto;
+    /* border: 2px white solid; */
+    /* border: 2px solid white; */
+}
+.cell{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    cursor: crosshair;
+}
+.clicked{
+    background-color: rgb(0, 102, 255);
+}
+.cell-medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+.cell-hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}

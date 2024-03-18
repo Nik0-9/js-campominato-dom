@@ -50,13 +50,12 @@ function play(difficulty, grid, listBomb){
         grid.appendChild(newCell);
         newCell.addEventListener('click', function () {
             console.log(newCell.innerText);
-
-           if(listBomb.includes(newCell.innerText)){
-            console.log(newCell.innerText);
-
-            newCell.classList.add('bomb');
-           }else{
-            newCell.classList.add('clicked');
+            let isFound = false;
+           if(listBomb.includes(parseInt(newCell.innerText))){
+            isFound = true;
+           }
+           if(isFound){
+            
            }
         });
     }

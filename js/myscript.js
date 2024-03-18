@@ -11,11 +11,14 @@ btnStart.addEventListener('click', function () {
     const gridEl = document.getElementById('grid');
     gridEl.classList.add('d-flex', 'flex-wrap');
     play(difficulty, gridEl);
+    let listBomb = [];
+    numBomb = 16;
+    for(i=0; i<numBomb; i++){
+        listBomb = getRandomIntUnique(1, 100, numBomb);
+    }
+    
+    //console.log(list);
 });
-
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
 
 function getCellsByDifficulty(difficulty){
     if(difficulty === 'easy'){
@@ -31,7 +34,6 @@ function generateCell(content, difficulty) {
 
     let addCell = document.createElement('div');
     addCell.innerHTML = content;
-    //console.log(addCell);
     addCell.classList.add('cell');
     if(difficulty !== 'easy'){
         addCell.classList.add(`cell-${difficulty}`);
@@ -41,14 +43,12 @@ function generateCell(content, difficulty) {
 
 function play(difficulty, grid){
     const cells = getCellsByDifficulty(difficulty);
-    console.log(cells);
     for (i = 0; i < cells ; i++){
         const newCell = generateCell(i + 1, difficulty);
         grid.appendChild(newCell);
         newCell.addEventListener('click', function () {
-            newCell.classList.toggle('clicked');
+            newCell.classList.add('clicked');
             console.log(newCell.innerHTML);
         });
     }
 }
-

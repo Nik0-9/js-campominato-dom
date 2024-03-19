@@ -17,11 +17,20 @@ btnStart.addEventListener('click', function () {
     gridEl.classList.add('d-flex', 'flex-wrap');
     let listBomb = [];
     numBomb = 16;
-    
+    if(difficulty === 'easy'){
         for (i = 0; i < numBomb; i++) {
-            listBomb = getRandomIntUnique(1, 100, numBomb);
+            listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
         }
-        play(difficulty, gridEl, listBomb);
+    }else if(difficulty === 'medium'){
+        for (i = 0; i < numBomb; i++) {
+            listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
+        }
+    }else{
+        for (i = 0; i < numBomb; i++) {
+            listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
+        }
+    }
+    play(difficulty, gridEl, listBomb);
 
     //console.log(list);
 });

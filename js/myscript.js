@@ -15,8 +15,14 @@ btnStart.addEventListener('click', function () {
     mainEl.appendChild(createDiv);
     const gridEl = document.getElementById('grid');
     gridEl.classList.add('d-flex', 'flex-wrap');
-    let listBomb = [];
-    numBomb = 16;
+    let listBomb = getBombByDifficulty(difficulty);
+    play(difficulty, gridEl, listBomb);
+
+    //console.log(list);
+});
+
+function getBombByDifficulty(difficulty){
+    let numBomb = 16;
     if(difficulty === 'easy'){
         for (i = 0; i < numBomb; i++) {
             listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
@@ -30,10 +36,8 @@ btnStart.addEventListener('click', function () {
             listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
         }
     }
-    play(difficulty, gridEl, listBomb);
-
-    //console.log(list);
-});
+    return listBomb;
+}
 
 function getCellsByDifficulty(difficulty) {
 

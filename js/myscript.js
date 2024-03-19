@@ -22,7 +22,7 @@ btnStart.addEventListener('click', function () {
 });
 
 function getBombByDifficulty(difficulty){
-    let numBomb = 16;
+    const numBomb = 16;
     if(difficulty === 'easy'){
         for (i = 0; i < numBomb; i++) {
             listBomb = getRandomIntUnique(1, getCellsByDifficulty(difficulty), numBomb);
@@ -41,14 +41,27 @@ function getBombByDifficulty(difficulty){
 
 function getCellsByDifficulty(difficulty) {
 
-    if (difficulty === 'easy') {
+    switch(difficulty){
+        case 'easy':
+            return 100;
+            break;
+        case 'medium':
+            return 81;
+            break;
+        case 'hard':
+            return 49;
+            break;
+    }
+
+    /*if (difficulty === 'easy') {
         return 100;
     } else if (difficulty === 'medium') {
         return 81;
     } else if (difficulty === 'hard') {
         return 49;
-    }
+    }*/
 }
+
 
 function generateCell(content, difficulty) {
 
@@ -86,6 +99,16 @@ function play(difficulty, grid, listBomb) {
                 createDiv.innerHTML = `Il tuo punteggio è: ${score}`;
             } else {
                 createDiv.innerHTML = `Hai perso il tuo punteggio è: ${score}`;
+            }
+            if(isFound){
+                const boxes = document.querySelectorAll('.cell');
+                //console.log(boxes);
+                for(let i = 0 ; i < boxes.length; i++){
+                    if(listBomb.includes(i + 1)){
+                        boxes[i].classList.add('bomb');
+                        
+                    }
+                }
             }
         });
     }

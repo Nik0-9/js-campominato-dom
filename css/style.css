@@ -39,7 +39,7 @@ main{
     cursor: crosshair;
 }
 .clicked{
-    background-color: rgb(0, 102, 255);
+    background-color: rgb(64, 201, 0);
 }
 .cell-medium{
     width: calc(100% / 9);

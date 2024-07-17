@@ -98,7 +98,7 @@ function play(difficulty, grid, listBomb) {
                 }
                 createDiv.innerHTML = `Il tuo punteggio è: ${score}`;
             } else {
-                createDiv.innerHTML = `Hai perso il tuo punteggio è: ${score}`;
+                createDiv.innerHTML = `Hai perso. Il tuo punteggio è: ${score}`;
             }
             if(isFound){
                 const boxes = document.querySelectorAll('.cell');
@@ -106,7 +106,6 @@ function play(difficulty, grid, listBomb) {
                 for(let i = 0 ; i < boxes.length; i++){
                     if(listBomb.includes(i + 1)){
                         boxes[i].classList.add('bomb');
-                        
                     }
                 }
             }
